@@ -17,14 +17,14 @@ namespace WebApptoConnectDatabase.Services
 
         public SqlConnection GetDatabaseconnection()
         {
-            SqlConnectionStringBuilder conn = new SqlConnectionStringBuilder();
+           // SqlConnectionStringBuilder conn = new SqlConnectionStringBuilder();
             //conn.UserID = db_userId;
             //conn.Password = db_password;
             //conn.InitialCatalog = db_database;
             //conn.DataSource = db_source;
-            conn.ConnectionString = configuration.GetConnectionString("SqlConnectionstring");
+            string ConnectionString = configuration.GetConnectionString("SqlConnectionstring");
 
-            return new SqlConnection(conn.ConnectionString);
+            return new SqlConnection(ConnectionString);
         }
 
         public List<Product> GetProducts()
