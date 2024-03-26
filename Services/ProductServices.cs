@@ -5,10 +5,10 @@ namespace WebApptoConnectDatabase.Services
 
     public class ProductService
     {
-        public static string db_source = "";
-        public static string db_database = "";
-        public static string db_userId = ""; 
-        public static string db_password = "";
+        public static string db_source = "carcollection.database.windows.net";
+        public static string db_database = "Products";
+        public static string db_userId = "sqldbuser"; 
+        public static string db_password = "AzureUser@2024";
         public ProductService() { }
 
         public SqlConnection GetDatabaseconnection()
@@ -26,7 +26,7 @@ namespace WebApptoConnectDatabase.Services
         {
             SqlConnection sqlConnection = GetDatabaseconnection();
             List<Product> products = new List<Product>();
-            string sqlstatement = "Select * from the Products";
+            string sqlstatement = "Select ProductId, ProductName, Quantity from Products";
             sqlConnection.Open();
             SqlCommand cmd = new SqlCommand(sqlstatement, sqlConnection);
             using (SqlDataReader reader = cmd.ExecuteReader())
