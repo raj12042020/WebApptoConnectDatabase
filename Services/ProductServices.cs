@@ -23,7 +23,7 @@ namespace WebApptoConnectDatabase.Services
             //conn.InitialCatalog = db_database;
             //conn.DataSource = db_source;
 
-            return new SqlConnection(configuration.GetConnectionString("SqlConnectionstring"));
+            return new SqlConnection(configuration.GetConnectionString("SQLConnection"));
         }
 
         public List<Product> GetProducts()
