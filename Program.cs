@@ -1,10 +1,10 @@
 using WebApptoConnectDatabase.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddTransient<IProductService, ProductService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddTransient<IProductService, ProductService>();
+
 
 var app = builder.Build();
 

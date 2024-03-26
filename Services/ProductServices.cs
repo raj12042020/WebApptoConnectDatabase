@@ -9,7 +9,7 @@ namespace WebApptoConnectDatabase.Services
         //public static string db_database = "Products";
         //public static string db_userId = "sqldbuser"; 
         //public static string db_password = "AzureUser@2024";
-        IConfiguration configuration;
+       private readonly IConfiguration configuration;
         public ProductService(IConfiguration _configuration)
         {
             configuration = _configuration;
@@ -22,9 +22,8 @@ namespace WebApptoConnectDatabase.Services
             //conn.Password = db_password;
             //conn.InitialCatalog = db_database;
             //conn.DataSource = db_source;
-            string ConnectionString = configuration.GetConnectionString("SqlConnectionstring");
 
-            return new SqlConnection(ConnectionString);
+            return new SqlConnection(configuration.GetConnectionString("SqlConnectionstring"));
         }
 
         public List<Product> GetProducts()
